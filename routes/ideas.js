@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const Idea = require('../models/Idea')
 const ideas = [
   {
     id: 1,
