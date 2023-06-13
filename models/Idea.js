@@ -5,7 +5,7 @@ mongoose = require('mongoose');
 const IdeaSchema = new mongoose.Schema({
   text: {
     type: 'String',
-    required: [true, 'Please add a text field'],
+    required: [true, 'Please add a text field'], //Back-end Validation so text is required
   },
   tag: {
     type: 'String',

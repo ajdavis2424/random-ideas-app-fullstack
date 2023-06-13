@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class IdeasAPi {
   constructor() {
-    this._apiURL = 'http://localhost:5005/api/ideas';
+    this._apiURL = '/api/ideas';
   }
 
   //using axios
@@ -13,6 +13,20 @@ class IdeasAPi {
   createIdea(data) {
     //post request
     return axios.post(this._apiURL, data);
+  }
+
+  updateIdea(id, data) {
+    return axios.put(`${this._apiURL}/${id}`, data);
+  }
+
+  deleteIdea(id) {
+    //send username bc it has to match
+    const username = localStorage.getItem('username')
+      ? localStorage.getItem('username')
+      : '';
+    return axios.delete(`${this._apiURL}/${id}`, {
+      data: { username },
+    });
   }
 }
 
